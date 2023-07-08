@@ -14,6 +14,7 @@ export type forecastType = {
       clouds: {
         all: number
       }
+      main: {
       dt: number
       name: {}
       feels_like: number
@@ -22,24 +23,26 @@ export type forecastType = {
       temp: number
       temp_max: number
       temp_min: number
-    }
-  ]
-  rain: {
-    three_hour: number
-  }
-  visibility: number
-  weather: [
+      }
+    wind: {
+    speed: number
+    gust: number
+    deg: number
+      }
+    weather: [
     {
       main: string
       icon: string
       description: string
     }
   ]
-  wind: {
-    speed: number
-    gust: number
-    deg: number
+    }
+    
+  ]
+  rain: {
+    three_hour: number
   }
+  visibility: number
   pop: number
 }
 

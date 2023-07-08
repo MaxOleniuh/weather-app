@@ -3,16 +3,17 @@ import { FcSearch } from 'react-icons/fc';
 import { UseActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelectors';
 import Loader from '../components/Loader';
-import Forecast from './forecast';
-
+import { useNavigate } from 'react-router-dom';
 const HomePage: React.FC = () => {
+  const navigate = useNavigate();
   const [city, setCity] = useState<string>('')
   const { fetchWeather } = UseActions()
   const submitFormHangler = async (e: React.FormEvent<HTMLFormElement>) => {
     if (!city) return;  
     e.preventDefault()
     try {
-      await fetchWeather(city)
+      await fetchWeather(city);
+      navigate("/forecast");
     } catch (error) {
       console.error(error)
     }
@@ -22,13 +23,10 @@ const HomePage: React.FC = () => {
   const onInutChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value)
   }
-  const { forecast, loading } = useTypedSelector((state) => state.weather)
+  const { loading } = useTypedSelector((state) => state.weather)
   return (
     <>
-      {loading && <Loader />}
-      {forecast ? (
-        <Forecast />
-      ) : (
+      {loading && <Loader/>}
         <div className="bg-slate-50 rounded p-6 shadow-lg text-center">
           <h1 className="text-zinc-700  text-4xl font-normal mb-2">
             Weather{' '}
@@ -62,7 +60,6 @@ const HomePage: React.FC = () => {
             </div>
           </form>
       </div>
-       )}
     </>
   )
 }
