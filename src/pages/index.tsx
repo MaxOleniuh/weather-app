@@ -1,13 +1,13 @@
-import React, { useState, ChangeEvent } from 'react'
-import { FcSearch } from 'react-icons/fc'
-import { UseActions } from '../hooks/useActions'
-import type {} from 'redux-thunk/extend-redux'
-import { useTypedSelector } from '../hooks/useTypedSelectors'
-import Loader from '../components/Loader'
+import React, { useState, ChangeEvent } from 'react';
+import { FcSearch } from 'react-icons/fc';
+import { UseActions } from '../hooks/useActions';
+import { useTypedSelector } from '../hooks/useTypedSelectors';
+import Loader from '../components/Loader';
+import Forecast from './forecast';
+
 const HomePage: React.FC = () => {
   const [city, setCity] = useState<string>('')
   const { fetchWeather } = UseActions()
-
   const submitFormHangler = async (e: React.FormEvent<HTMLFormElement>) => {
     if (!city) return;  
     e.preventDefault()
@@ -26,9 +26,9 @@ const HomePage: React.FC = () => {
   return (
     <>
       {loading && <Loader />}
-      {/* {forecast && !Array.isArray(forecast) ? (
-        forecast.name
-      ) : ( */}
+      {forecast ? (
+        <Forecast />
+      ) : (
         <div className="bg-slate-50 rounded p-6 shadow-lg text-center">
           <h1 className="text-zinc-700  text-4xl font-normal mb-2">
             Weather{' '}
@@ -61,8 +61,8 @@ const HomePage: React.FC = () => {
               />
             </div>
           </form>
-        </div>
-      {/* )} */}
+      </div>
+       )}
     </>
   )
 }

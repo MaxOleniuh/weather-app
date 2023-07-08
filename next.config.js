@@ -4,16 +4,16 @@ module.exports = {
   },
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      const postcssConfig = require("./postcss.config.js");
+      const postcssConfig = require('./postcss.config.js')
       const postcssLoader = config.module.rules.find(
-        (rule) => rule.loader === "postcss-loader"
-      );
+        (rule) => rule.loader === 'postcss-loader'
+      )
       postcssLoader.options.postcssOptions = {
         ...postcssLoader.options.postcssOptions,
         ...postcssConfig,
-      };
+      }
     }
 
-    return config;
+    return config
   },
-};
+}
