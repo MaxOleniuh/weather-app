@@ -13,8 +13,8 @@ const initialState: WeatherState = {
         clouds: {
           all: 0,
         },
+        dt: 0,
         main: {
-          dt: 0,
           name: {},
           feels_like: 0,
           humidity: 0,

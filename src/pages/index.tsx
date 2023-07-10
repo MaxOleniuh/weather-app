@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
     <>
       {loading && <Loader/>}
         <div className="bg-slate-50 rounded p-6 shadow-lg text-center">
-          <h1 className="text-zinc-700  text-4xl font-normal mb-2">
+          <h1 className="text-zinc-700  text-4xl mb-2 font-semibold">
             Weather{' '}
             <span className="font-black text-yellow-500 ">Forecast</span>
           </h1>

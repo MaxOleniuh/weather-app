@@ -11,11 +11,11 @@ export type forecastType = {
   sunset: number
   list: [
     {
+      dt: number
       clouds: {
         all: number
       }
       main: {
-      dt: number
       name: {}
       feels_like: number
       humidity: number
