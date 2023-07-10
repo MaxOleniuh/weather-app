@@ -2,7 +2,7 @@
 
 ## Tech Stack
 
-### React with Redux, Next.js, TypeScript and Tailwind
+### React with Redux, TypeScript and Tailwind
 
 ## Features
 
