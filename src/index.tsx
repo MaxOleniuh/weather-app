@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <HashRouter basename="/weather-app">
+        <HashRouter basename="/">
           <App />
         </HashRouter>
       </PersistGate>
