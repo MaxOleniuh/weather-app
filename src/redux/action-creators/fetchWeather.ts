@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Dispatch } from "redux";
-import { FetchAction, FetchActionTypes } from '../../types/types';
+import { FetchAction, FetchActionTypes} from '../../types/types';
 
 const API_KEY = '9063b858193f6cef2ce45cedd3c24c13'; 
 const BASE_URL = 'https://api.openweathermap.org';

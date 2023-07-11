@@ -10,16 +10,12 @@ import { LiaCompassSolid } from 'react-icons/lia'
 import { WiHumidity } from 'react-icons/wi'
 import { BsFillSunsetFill } from 'react-icons/bs'
 import { BsFillSunriseFill } from 'react-icons/bs'
-
-
-
+import { Link } from 'react-router-dom'
+import { BiArrowBack } from 'react-icons/bi'
 
 const Forecast: FC<{ forecast: forecastType | forecastType[] }> = () => {
   const { forecast } = useTypedSelector((state) => state.weather)
   const singleForecast = Array.isArray(forecast) ? forecast[0] : forecast
-  console.log(singleForecast)
-  const secondForecast = Array.isArray(forecast) ? forecast[0] : forecast
-  const tempSecond = secondForecast.list[0].main.temp
   const temp = singleForecast.list[0].main.temp
   const pressure = singleForecast.list[0].main.pressure
   const humidity = singleForecast.list[0].main.humidity
@@ -146,8 +142,9 @@ const Forecast: FC<{ forecast: forecastType | forecastType[] }> = () => {
                           <span className="text-blue-500 font-medium text-2xl ml-3">{sunsetTime}</span>
                       </p>
                   </div>
-                  <div className="mt-20">
-                      <a href="/" className="text-red-800 text-2xl font-semibold p-1">Back to Search...</a>
+                  <div className="mt-20 flex items-center">
+                      <Link to="/" className="text-red-800 text-2xl font-semibold p-1">
+                          <BiArrowBack className='inline  transition-transform duration-300 hover:-translate-x-2 p-2' size={"2em"} />Back to Search...</Link>
                   </div>
         </div>
       )}

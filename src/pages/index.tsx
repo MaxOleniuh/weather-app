@@ -9,19 +9,21 @@ const HomePage: React.FC = () => {
   const [city, setCity] = useState<string>('')
   const { fetchWeather } = UseActions()
   const submitFormHangler = async (e: React.FormEvent<HTMLFormElement>) => {
-    if (!city) return;  
+    const form = e.currentTarget;
+    if (city.length <= 2) return;  
     e.preventDefault()
     try {
       await fetchWeather(city);
       navigate("/forecast");
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
     setCity('')
+    form.reset()
   }
 
-  const onInutChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCity(e.target.value)
+  const onInutChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    setCity(e.target.value);
   }
   const { loading } = useTypedSelector((state) => state.weather)
   return (
@@ -30,7 +32,7 @@ const HomePage: React.FC = () => {
         <div className="bg-slate-50 rounded p-6 shadow-lg text-center">
           <h1 className="text-zinc-700  text-4xl mb-2 font-semibold">
             Weather{' '}
-            <span className="font-black text-yellow-500 ">Forecast</span>
+            <span className="font-black text-yellow-500">Forecast</span>
           </h1>
           <p className="text-zinc-700 mb-2">
             Enter below a place to see what the weather is like there
@@ -40,7 +42,8 @@ const HomePage: React.FC = () => {
             onClick={submitFormHangler}
           >
             <div className="flex">
-              <button
+            <button
+              title='button'
                 type="submit"
                 className="bg-white border shadow  rounded-l-md border-r-0 p-2"
               >
@@ -56,7 +59,7 @@ const HomePage: React.FC = () => {
                 value={city}
                 placeholder="Search for a city"
                 className=" bg-white shadow border border-l-0 rounded-r-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
+            />
             </div>
           </form>
       </div>
