@@ -24,7 +24,7 @@ git clone https://github.com/esnz/reactweather.git
 ```
 
 ```bash
-cd reactweather
+cd weather-app
 npm install
 npm start
 ```
