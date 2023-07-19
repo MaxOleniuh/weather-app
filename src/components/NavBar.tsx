@@ -34,7 +34,7 @@ const NavBar = () => {
   }, []);
   return (
   
-<nav className="border-gray-200 dark:bg-gray-900 fixed top-0 left-0 w-full bg-white text-slate-700 p-4">
+<nav className="border-gray-200 dark:bg-gray-900 fixed top-0 left-0 w-full bg-white text-slate-700 p-4 shadow-lg">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center gap-2">
             <BsCloudSunFill size={"2em"} />
@@ -47,21 +47,18 @@ const NavBar = () => {
         </svg>
     </button>
     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <ul className="flex flex-col items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
-          <Link to="/" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</Link>
+          <Link to="/" className=" text-2xl font-normal block py-2 pl-3 pr-4 text-slate-700 rounded md:bg-transparent  md:p-0 dark:text-white md:dark:text-blue-500 md:hover:text-blue-700 transition-all duration-300">Home</Link>
         </li>
         <li>
-          <Link to="/" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</Link>
+          <Link to="/about" className="text-2xl font-normal  block py-2 pl-3 pr-4 text-slate-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</Link>
+            </li>
+            <li>
+          <Link to="/login" className=" text-2xl font-normal block py-2 pl-3 pr-4 text-slate-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>
         </li>
         <li>
-          <Link to="/" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Forecast</Link>
-        </li>
-        <li>
-          <Link to="/register" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Register</Link>
-        </li>
-        <li>
-          <Link to="/login" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>
+          <Link to="/register" className=" text-2xl font-normal block py-2 pl-3 pr-4 rounded-lg text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80">Register</Link>
         </li>
       </ul>
     </div>
@@ -85,15 +82,6 @@ const NavBar = () => {
                 onClick={handleCloseModal}
               >
                 About
-              </Link>
-            </li>
-            <li className='text-center'>
-              <Link
-                to="/forecast"
-                className="block py-2 px-4 rounded hover:text-slate-300 active:border"
-                onClick={handleCloseModal}
-              >
-                Forecast
               </Link>
             </li>
             <li className='text-center'>

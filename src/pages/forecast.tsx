@@ -12,8 +12,12 @@ import { BsFillSunsetFill } from 'react-icons/bs'
 import { BsFillSunriseFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi'
+import WeekForecast from '../components/WeekForecast'
 
-const Forecast: FC<{ forecast: forecastType | forecastType[] }> = () => {
+type ForecastProps = {
+  forecast: forecastType | forecastType[];
+};
+const Forecast: FC<ForecastProps> = () => {
   const { forecast } = useTypedSelector((state) => state.weather)
   const singleForecast = Array.isArray(forecast) ? forecast[0] : forecast
   const temp = singleForecast.list[0].main.temp
@@ -77,9 +81,9 @@ const Forecast: FC<{ forecast: forecastType | forecastType[] }> = () => {
   const formattedDate = `${weekday}, ${day}${daySuffix} ${month}`
 
   return (
-    <div>
+    <div className='bg-slate-50 rounded p-7 shadow-lg mt-28 font-sans w-[90vw] flex gap-12 max-md:justify-center max-md: h-[80vh]'>
       {forecast && !Array.isArray(forecast) && (
-        <div className="bg-slate-50 rounded p-7 shadow-lg h-[90vh] font-sans w-[90vw] flex flex-col">
+        <div>
           <div className="flex items-center gap-7">
             <p className="text-5xl text-slate-800 font-black">
               {forecast.name}
@@ -97,7 +101,7 @@ const Forecast: FC<{ forecast: forecastType | forecastType[] }> = () => {
               <BsCloudSnowFill color={'lightskyblue'} size={'4em'} />
             )}
           </div>
-          <p className="text-2xl text-slate-600 mb-4 font-mono">
+          <p className="text-2xl text-slate-600 mb-4 font-mono w-[290px]">
             {formattedDate}
           </p>
           <p className="text-6xl text-slate-700 font-semibold mb-8">
@@ -105,10 +109,10 @@ const Forecast: FC<{ forecast: forecastType | forecastType[] }> = () => {
           </p>
           <div className="flex items-center gap-2 mb-4">
             <PiWindLight color={'lightskyblue'} size={'2em'} />
-            <p className="text-slate-600 font-medium text-2xl">
+            <p className="text-slate-600 font-medium text-2xl"  >
               Wind:
               <span className="text-blue-500 font-medium text-2xl ml-3">
-                {Math.floor(wind)} km/h{' '}
+                {Math.floor(wind)} km/h
               </span>
             </p>
           </div>
@@ -142,14 +146,15 @@ const Forecast: FC<{ forecast: forecastType | forecastType[] }> = () => {
                           <span className="text-blue-500 font-medium text-2xl ml-3">{sunsetTime}</span>
                       </p>
                   </div>
-                  <div className="mt-20 flex items-center">
+                  <div className="flex items-center">
                       <Link to="/" className="text-red-800 text-2xl font-semibold p-1">
-                          <BiArrowBack className='inline  transition-transform duration-300 hover:-translate-x-2 p-2' size={"2em"} />Back to Search...</Link>
-                  </div>
-        </div>
+              <BiArrowBack className='inline  transition-transform duration-300 hover:-translate-x-2 p-2' size={"2em"} />Back to Search...</Link>
+          </div>
+        </div>       
       )}
+          <WeekForecast forecast={forecast}/>
     </div>
   )
 }
 
-export default Forecast
+export default Forecast;

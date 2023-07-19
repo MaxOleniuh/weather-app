@@ -43,13 +43,13 @@ const HomePage: React.FC = () => {
           >
             <div className="flex">
             <button
-              title='button'
+              title='search'
                 type="submit"
                 className="bg-white border shadow  rounded-l-md border-r-0 p-2"
               >
                 <FcSearch
                   size="2em"
-                  className="bg-white opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  className="bg-white"
                 />
               </button>
               <input
