@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import Forecast from './pages/forecast';
 import { useTypedSelector } from './hooks/useTypedSelectors';
 import NavBar from './components/NavBar';
+import Login from './pages/login';
+import Register from './pages/register';
 const App = () => {
   const { forecast } = useTypedSelector((state) => state.weather);
 
@@ -14,9 +16,11 @@ const App = () => {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/forecast' element={<Forecast forecast={forecast} />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='*' element={<HomePage />} />
         </Routes>
-    </main>
+      </main>
     </>
   );
 }

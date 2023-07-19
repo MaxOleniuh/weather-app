@@ -10,8 +10,6 @@ import { CiTempHigh } from 'react-icons/ci'
 const WeekForecast: FC<{ forecast: forecastType | forecastType[] }> = () => {
   const { forecast } = useTypedSelector((state) => state.weather)
   const singleForecast = Array.isArray(forecast) ? forecast[0] : forecast
-  const pressure = singleForecast.list[0].main.pressure
-  const humidity = singleForecast.list[0].main.humidity
   const sunrise = singleForecast.sunrise
   const sunset = singleForecast.sunset
 
