@@ -6,6 +6,7 @@ import { useTypedSelector } from './hooks/useTypedSelectors';
 import NavBar from './components/NavBar';
 import Login from './pages/login';
 import Register from './pages/register';
+import About from './pages/about';
 const App = () => {
   const { forecast } = useTypedSelector((state) => state.weather);
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='/forecast' element={<Forecast forecast={forecast} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/about' element={<About />} />
           <Route path='*' element={<HomePage />} />
         </Routes>
       </main>
